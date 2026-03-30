@@ -48,58 +48,78 @@ const itemVariants = {
 
 const Skills = () => {
     return (
-        <section id="skills" className="py-24 lg:py-32">
-            {/* Section Heading */}
-            <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-100px' }}
-                transition={{ duration: 0.6 }}
-            >
-                <h2 className="section-heading">
-                    Tech <span className="gradient-text">Stack</span>
-                </h2>
-                <p className="section-subheading">
-                    Technologies I work with to build modern, scalable applications
-                </p>
-            </motion.div>
+        <section id="skills" className="section-padding relative overflow-hidden">
+            {/* Background Decorations */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px] -z-10" />
 
-            {/* Skills Grid */}
-            <motion.div
-                variants={containerVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: '-50px' }}
-                className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 max-w-4xl mx-auto"
-            >
-                {skills.map((skill) => (
+            <div className="container-custom">
+                <div className="flex flex-col items-center text-center mb-16">
                     <motion.div
-                        key={skill.name}
-                        variants={itemVariants}
-                        whileHover={{
-                            y: -8,
-                            scale: 1.05,
-                            transition: { type: 'spring', stiffness: 300 },
-                        }}
-                        className="glass rounded-2xl p-6 flex flex-col items-center gap-3 cursor-default group hover:border-white/15 transition-all duration-300 relative overflow-hidden"
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
                     >
-                        {/* Glow effect behind icon */}
-                        <div
-                            className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-3xl"
-                            style={{ background: `radial-gradient(circle at center, ${skill.color}10, transparent 70%)` }}
-                        />
-                        <div className="relative">
-                            <skill.icon
-                                className="text-4xl transition-all duration-300 group-hover:drop-shadow-lg"
-                                style={{ color: skill.color }}
-                            />
-                        </div>
-                        <span className="text-sm font-medium text-white/50 group-hover:text-white/80 transition-colors duration-300 relative">
-                            {skill.name}
-                        </span>
+                        <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                            My <span className="gradient-text">Expertise</span>
+                        </h2>
+                        <p className="text-white/50 max-w-2xl text-lg">
+                            I specialize in building high-performance applications using a modern, scalable tech stack.
+                        </p>
                     </motion.div>
-                ))}
-            </motion.div>
+                </div>
+
+                {/* Skills Grid */}
+                <motion.div
+                    variants={containerVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6"
+                >
+                    {skills.map((skill) => (
+                        <motion.div
+                            key={skill.name}
+                            variants={itemVariants}
+                            whileHover={{ y: -10, scale: 1.02 }}
+                            className="group relative"
+                        >
+                            <div className="glass p-8 rounded-3xl flex flex-col items-center gap-4 hover:border-primary/30 transition-all duration-500 overflow-hidden">
+                                {/* Hover Glow */}
+                                <div 
+                                    className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-500"
+                                    style={{ backgroundColor: skill.color }}
+                                />
+                                
+                                <div className="relative z-10 p-4 rounded-2xl bg-white/5 group-hover:bg-white/10 transition-colors duration-300">
+                                    <skill.icon
+                                        size={40}
+                                        style={{ color: skill.color }}
+                                        className="filter drop-shadow-sm group-hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.3)] transition-all duration-300"
+                                    />
+                                </div>
+                                
+                                <span className="relative z-10 font-bold text-white/40 group-hover:text-white transition-colors duration-300">
+                                    {skill.name}
+                                </span>
+                            </div>
+                        </motion.div>
+                    ))}
+                </motion.div>
+
+                {/* Additional Info */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.5 }}
+                    className="mt-16 p-8 rounded-3xl glass text-center border-dashed border-white/10"
+                >
+                    <p className="text-white/40 italic">
+                        "Continuously exploring new horizons in software engineering and cloud architecture."
+                    </p>
+                </motion.div>
+            </div>
         </section>
     );
 };

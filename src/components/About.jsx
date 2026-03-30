@@ -9,70 +9,86 @@ const stats = [
 
 const About = () => {
   return (
-    <section id="about" className="py-24 lg:py-32">
-      {/* Section Heading */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-100px' }}
-        transition={{ duration: 0.6 }}
-      >
-        <h2 className="section-heading">
-          About <span className="gradient-text">Me</span>
-        </h2>
-        <div className="flex justify-center mb-12">
-          <div className="w-20 h-1 rounded-full bg-gradient-to-r from-cyan-500 to-purple-500"></div>
-        </div>
-      </motion.div>
-
-      {/* About Card */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: '-100px' }}
-        transition={{ duration: 0.7, delay: 0.2 }}
-        className="max-w-3xl mx-auto mb-16"
-      >
-        <div className="glass rounded-2xl p-8 md:p-10 relative overflow-hidden group hover:border-white/15 transition-all duration-500">
-          {/* Subtle glow effect */}
-          <div className="absolute -top-20 -right-20 w-40 h-40 bg-cyan-500/5 rounded-full blur-3xl group-hover:bg-cyan-500/10 transition-all duration-700"></div>
-          <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-purple-500/5 rounded-full blur-3xl group-hover:bg-purple-500/10 transition-all duration-700"></div>
-
-          <p className="relative text-white/60 text-lg leading-relaxed text-center">
-            I am a dedicated and versatile Full Stack Developer with a passion
-            for creating efficient and user-friendly web applications. With a
-            strong foundation in both front-end and back-end technologies, I
-            have worked on various personal and academic projects to hone my
-            skills. My journey in web development is driven by curiosity and a
-            desire to build impactful solutions. I thrive in collaborative
-            environments and enjoy solving complex problems to deliver
-            high-quality solutions. Outside of coding, I enjoy staying active
-            and exploring new technologies.
-          </p>
-        </div>
-      </motion.div>
-
-      {/* Stats Row */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
-        {stats.map((stat, i) => (
+    <section id="about" className="section-padding relative overflow-hidden">
+      <div className="container-custom">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Left: Image/Visual side */}
           <motion.div
-            key={stat.label}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 + i * 0.15 }}
-            whileHover={{ y: -5, scale: 1.02 }}
-            className="glass rounded-2xl p-6 text-center group hover:border-white/15 transition-all duration-300 cursor-default"
+            transition={{ duration: 0.8 }}
+            className="relative group"
           >
-            <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500/10 to-purple-500/10 mb-4 group-hover:from-cyan-500/20 group-hover:to-purple-500/20 transition-all duration-300">
-              <stat.icon className="text-2xl gradient-text" />
+            <div className="relative z-10 rounded-3xl overflow-hidden glass p-2 aspect-square max-w-md mx-auto lg:mx-0">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <img 
+                src="/portfolio.png" 
+                alt="Profile" 
+                className="w-full h-full object-cover rounded-2xl grayscale group-hover:grayscale-0 transition-all duration-700 scale-110 group-hover:scale-100"
+              />
             </div>
-            <p className="text-3xl font-bold font-['Space_Grotesk'] gradient-text mb-1">
-              {stat.value}
-            </p>
-            <p className="text-sm text-white/40">{stat.label}</p>
+            
+            {/* Decorative background for image */}
+            <div className="absolute -top-4 -right-4 w-full h-full border-2 border-primary/20 rounded-3xl -z-10 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-500" />
+            <div className="absolute -bottom-4 -left-4 w-full h-full border-2 border-secondary/20 rounded-3xl -z-10 group-hover:-translate-x-2 group-hover:-translate-y-2 transition-transform duration-500" />
           </motion.div>
-        ))}
+
+          {/* Right: Content side */}
+          <div className="flex flex-col gap-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                Designing the <span className="gradient-text">Future</span> of Web.
+              </h2>
+              <p className="text-white/50 text-lg leading-relaxed mb-8">
+                I'm a Full Stack Architect who loves turning complex problems into simple, beautiful digital experiences. 
+                With a deep focus on performance and user-centric design, I build applications that don't just work—they feel right.
+              </p>
+            </motion.div>
+
+            {/* Stats Grid */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+              {stats.map((stat, i) => (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  className="glass p-6 rounded-2xl hover:border-primary/30 transition-all duration-300 group"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform duration-300">
+                    <stat.icon size={20} />
+                  </div>
+                  <div className="text-2xl font-bold font-display">{stat.value}</div>
+                  <div className="text-xs text-white/40 uppercase tracking-wider">{stat.label}</div>
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.6 }}
+              className="flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/5"
+            >
+              <div className="flex -space-x-3">
+                {[1,2,3].map(i => (
+                  <div key={i} className="w-10 h-10 rounded-full border-2 border-dark bg-gradient-to-br from-primary/40 to-secondary/40" />
+                ))}
+              </div>
+              <p className="text-sm text-white/60">
+                Joined by <span className="text-white font-bold">50+</span> satisfied clients and collaborators.
+              </p>
+            </motion.div>
+          </div>
+        </div>
       </div>
     </section>
   );

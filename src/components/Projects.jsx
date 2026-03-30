@@ -37,93 +37,88 @@ const cardVariants = {
 
 const Projects = () => {
     return (
-        <section id="projects" className="py-24 lg:py-32">
-            {/* Section Heading */}
-            <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: '-100px' }}
-                transition={{ duration: 0.6 }}
-            >
-                <h2 className="section-heading">
-                    Featured <span className="gradient-text">Projects</span>
-                </h2>
-                <p className="section-subheading">
-                    A selection of projects that showcase my skills and passion for building
-                </p>
-            </motion.div>
-
-            {/* Projects Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                {projects.map((project, i) => (
+        <section id="projects" className="section-padding relative">
+            <div className="container-custom">
+                <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
                     <motion.div
-                        key={project.title}
-                        custom={i}
-                        variants={cardVariants}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true, margin: '-50px' }}
-                        whileHover={{ y: -8 }}
-                        className="glass rounded-2xl overflow-hidden group hover:border-white/15 transition-all duration-500 relative"
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                        className="max-w-2xl"
                     >
-                        {/* Gradient glow on hover */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-
-                        {/* Image Container */}
-                        <div className="relative h-52 overflow-hidden">
-                            <img
-                                src={project.image}
-                                alt={project.title}
-                                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-[#030014] via-transparent to-transparent" />
-
-                            {/* Overlay buttons */}
-                            <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                                <motion.a
-                                    href={project.liveUrl}
-                                    whileHover={{ scale: 1.1 }}
-                                    whileTap={{ scale: 0.9 }}
-                                    className="w-10 h-10 rounded-full glass-strong flex items-center justify-center text-white hover:text-cyan-400 transition-colors"
-                                    aria-label="Live demo"
-                                >
-                                    <HiExternalLink className="text-lg" />
-                                </motion.a>
-                                <motion.a
-                                    href={project.codeUrl}
-                                    whileHover={{ scale: 1.1 }}
-                                    whileTap={{ scale: 0.9 }}
-                                    className="w-10 h-10 rounded-full glass-strong flex items-center justify-center text-white hover:text-purple-400 transition-colors"
-                                    aria-label="Source code"
-                                >
-                                    <HiCode className="text-lg" />
-                                </motion.a>
-                            </div>
-                        </div>
-
-                        {/* Content */}
-                        <div className="p-6 relative">
-                            <h3 className="text-xl font-bold font-['Space_Grotesk'] mb-3 group-hover:text-white transition-colors">
-                                {project.title}
-                            </h3>
-                            <p className="text-white/40 text-sm leading-relaxed mb-5">
-                                {project.description}
-                            </p>
-
-                            {/* Tech Badges */}
-                            <div className="flex flex-wrap gap-2">
-                                {project.technologies.map((tech) => (
-                                    <span
-                                        key={tech}
-                                        className="px-3 py-1 rounded-full text-xs font-medium bg-white/5 text-cyan-300/70 border border-white/5"
-                                    >
-                                        {tech}
-                                    </span>
-                                ))}
-                            </div>
-                        </div>
+                        <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                            Selected <span className="gradient-text">Works</span>
+                        </h2>
+                        <p className="text-white/50 text-lg">
+                            A collection of projects where I've pushed the boundaries of web development and design.
+                        </p>
                     </motion.div>
-                ))}
+                    
+                    <motion.div
+                        initial={{ opacity: 0, x: 20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                    >
+                        <a href="https://github.com" className="group flex items-center gap-2 text-white/60 hover:text-white transition-colors font-bold">
+                            View All Projects 
+                            <HiExternalLink className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                        </a>
+                    </motion.div>
+                </div>
+
+                {/* Projects Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    {projects.map((project, i) => (
+                        <motion.div
+                            key={project.title}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6, delay: i * 0.1 }}
+                            className="group relative flex flex-col gap-6"
+                        >
+                            {/* Project Image Container */}
+                            <div className="relative aspect-[16/10] rounded-3xl overflow-hidden glass p-2 group-hover:border-primary/30 transition-all duration-500">
+                                <div className="relative w-full h-full rounded-2xl overflow-hidden">
+                                    <img
+                                        src={project.image}
+                                        alt={project.title}
+                                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+                                    />
+                                    
+                                    {/* Overlay */}
+                                    <div className="absolute inset-0 bg-dark/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center gap-4">
+                                        <a href={project.liveUrl} className="w-12 h-12 rounded-2xl glass-strong flex items-center justify-center text-white hover:scale-110 transition-transform">
+                                            <HiExternalLink size={24} />
+                                        </a>
+                                        <a href={project.codeUrl} className="w-12 h-12 rounded-2xl glass-strong flex items-center justify-center text-white hover:scale-110 transition-transform">
+                                            <HiCode size={24} />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Project Info */}
+                            <div className="flex flex-col gap-3 px-2">
+                                <div className="flex flex-wrap gap-2">
+                                    {project.technologies.map(tech => (
+                                        <span key={tech} className="text-[10px] uppercase tracking-widest font-bold px-3 py-1 rounded-full bg-white/5 text-white/40 border border-white/5">
+                                            {tech}
+                                        </span>
+                                    ))}
+                                </div>
+                                <h3 className="text-2xl font-bold group-hover:text-primary transition-colors duration-300">
+                                    {project.title}
+                                </h3>
+                                <p className="text-white/50 line-clamp-2 leading-relaxed">
+                                    {project.description}
+                                </p>
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
             </div>
         </section>
     );
