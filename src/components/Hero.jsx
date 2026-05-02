@@ -1,10 +1,61 @@
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 
 const Hero = () => {
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  // Smooth the mouse values
+  const springX = useSpring(mouseX, { stiffness: 100, damping: 30 });
+  const springY = useSpring(mouseY, { stiffness: 100, damping: 30 });
+
+  // Map mouse position to movement range for different elements
+  // The first set moves slightly with the mouse, the second moves oppositely
+  const moveX1 = useTransform(springX, [-0.5, 0.5], [-20, 20]);
+  const moveY1 = useTransform(springY, [-0.5, 0.5], [-20, 20]);
+  
+  const moveX2 = useTransform(springX, [-0.5, 0.5], [30, -30]);
+  const moveY2 = useTransform(springY, [-0.5, 0.5], [30, -30]);
+
+  const handleMouseMove = (e) => {
+    // Normalize mouse position between -0.5 and 0.5
+    const { clientX, clientY } = e;
+    const { innerWidth, innerHeight } = window;
+    
+    const x = (clientX / innerWidth) - 0.5;
+    const y = (clientY / innerHeight) - 0.5;
+    
+    mouseX.set(x);
+    mouseY.set(y);
+  };
+
+  const handleMouseLeave = () => {
+    // Reset to center smoothly
+    mouseX.set(0);
+    mouseY.set(0);
+  };
+
   return (
-    <section id="hero" className="relative min-h-screen flex flex-col justify-center pt-32 pb-16">
+    <section 
+      id="hero" 
+      className="relative min-h-screen flex flex-col justify-center pt-32 pb-16 overflow-hidden"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+    >
+      {/* Subtle background abstract shapes that move with parallax */}
+      <motion.div 
+        style={{ x: moveX2, y: moveY2 }}
+        className="absolute top-1/4 right-1/4 w-[30rem] h-[30rem] bg-secondary/5 rounded-full blur-[100px] -z-10 pointer-events-none"
+      />
+      <motion.div 
+        style={{ x: moveX1, y: moveY1 }}
+        className="absolute bottom-1/4 left-1/4 w-[20rem] h-[20rem] bg-primary/5 rounded-full blur-[100px] -z-10 pointer-events-none"
+      />
+
       <div className="container-custom relative z-10 flex flex-col md:flex-row items-end justify-between gap-12">
-        <div className="max-w-4xl">
+        <motion.div 
+          style={{ x: moveX1, y: moveY1 }}
+          className="max-w-4xl"
+        >
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -12,7 +63,7 @@ const Hero = () => {
           >
             <p className="text-sm tracking-[0.2em] uppercase text-primary font-bold mb-6">Tushar Ravaliya</p>
           </motion.div>
-          
+
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
@@ -22,33 +73,37 @@ const Hero = () => {
             Full Stack<br />
             <span className="italic text-primary font-normal">Architect.</span>
           </motion.h1>
-        </div>
+        </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          style={{ x: moveX2, y: moveY2 }}
           className="max-w-sm"
         >
-          <p className="text-dark/70 text-lg leading-relaxed mb-8">
-            Building high-performance, scalable web solutions with precision and passion. 
-            Bridging the gap between complex logic and elegant user interfaces.
-          </p>
-          
-          <div className="flex gap-4">
-            <a
-              href="#projects"
-              className="px-8 py-4 bg-dark text-light font-medium hover:bg-primary transition-colors duration-300"
-            >
-              Selected Works
-            </a>
-            <a
-              href="#contact"
-              className="px-8 py-4 border border-dark/20 text-dark font-medium hover:border-dark transition-colors duration-300"
-            >
-              Contact
-            </a>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <p className="text-dark/70 text-lg leading-relaxed mb-8">
+              Building high-performance, scalable web solutions with precision and passion.
+              Bridging the gap between complex logic and elegant user interfaces.
+            </p>
+
+            <div className="flex gap-4">
+              <a
+                href="#projects"
+                className="px-8 py-4 bg-dark text-light font-medium hover:bg-primary transition-colors duration-300"
+              >
+                Selected Works
+              </a>
+              <a
+                href="#contact"
+                className="px-8 py-4 border border-dark/20 text-dark font-medium hover:border-dark transition-colors duration-300"
+              >
+                Contact
+              </a>
+            </div>
+          </motion.div>
         </motion.div>
       </div>
 
