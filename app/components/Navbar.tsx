@@ -37,7 +37,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link
           href="#home"
-          className="text-[28px] font-extrabold font-heading text-text-primary no-underline tracking-[-1px]"
+          className="text-[24px] sm:text-[28px] font-extrabold font-heading text-text-primary no-underline tracking-[-1px]"
         >
           Tushar Ravaliya
         </Link>

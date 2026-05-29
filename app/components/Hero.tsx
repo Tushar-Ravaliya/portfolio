@@ -29,7 +29,7 @@ export default function Hero() {
 
             {/* Heading */}
             <h1
-              className="opacity-0 animate-fade-in-up font-heading text-[clamp(48px,7vw,88px)] font-extrabold leading-[1.05] tracking-[-2px] mb-6"
+              className="opacity-0 animate-fade-in-up font-heading text-[clamp(36px,8vw,88px)] font-extrabold leading-[1.05] tracking-[-2px] mb-6"
               style={{ animationDelay: "0.1s" }}
             >
               I BUILD DIGITAL{" "}
@@ -116,12 +116,12 @@ export default function Hero() {
               {stats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="bg-bg-secondary py-5 px-4 text-center"
+                  className="bg-bg-secondary py-3 px-2 sm:py-5 sm:px-4 text-center"
                 >
-                  <div className="text-[28px] font-bold font-heading text-text-primary mb-1">
+                  <div className="text-[20px] sm:text-[28px] font-bold font-heading text-text-primary mb-1">
                     {stat.value}
                   </div>
-                  <div className="text-[10px] font-medium tracking-[1.5px] text-text-muted uppercase">
+                  <div className="text-[8px] sm:text-[10px] font-medium tracking-[1px] sm:tracking-[1.5px] text-text-muted uppercase break-words">
                     {stat.label}
                   </div>
                 </div>

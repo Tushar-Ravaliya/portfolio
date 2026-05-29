@@ -49,7 +49,7 @@ export default function Footer() {
       <div className="py-12 px-6">
         <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-[1fr_1fr_1fr_1.5fr] gap-10">
           {/* Logo / Brand */}
-          <div />
+          <div className="hidden md:block" />
 
           {/* Navigation */}
           <div>
@@ -90,7 +90,7 @@ export default function Footer() {
           </div>
 
           {/* Copyright */}
-          <div className="flex flex-col justify-end text-right gap-2">
+          <div className="flex flex-col md:justify-end text-left md:text-right gap-2">
             <p className="text-[13px] text-text-muted">
               © 2026 Tushar Ravaliya. All rights reserved.
             </p>
