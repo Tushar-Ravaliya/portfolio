@@ -12,103 +12,34 @@ export default function Hero() {
   return (
     <section
       id="home"
-      style={{
-        minHeight: "100vh",
-        display: "flex",
-        alignItems: "center",
-        paddingTop: "100px",
-        paddingBottom: "60px",
-        position: "relative",
-        overflow: "hidden",
-      }}
+      className="min-h-screen flex items-center pt-[100px] pb-[60px] relative overflow-hidden"
     >
       {/* Subtle gradient background */}
-      <div
-        style={{
-          position: "absolute",
-          top: "-50%",
-          right: "-20%",
-          width: "800px",
-          height: "800px",
-          background:
-            "radial-gradient(circle, rgba(163, 230, 53, 0.04) 0%, transparent 60%)",
-          pointerEvents: "none",
-        }}
-      />
+      <div className="absolute -top-1/2 -right-[20%] w-[800px] h-[800px] bg-[radial-gradient(circle,rgba(163,230,53,0.04)_0%,transparent_60%)] pointer-events-none" />
 
-      <div
-        style={{
-          maxWidth: "1280px",
-          margin: "0 auto",
-          padding: "0 24px",
-          width: "100%",
-        }}
-      >
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr",
-            gap: "48px",
-            alignItems: "center",
-          }}
-          className="md:!grid-cols-[1.2fr_0.8fr]"
-        >
+      <div className="max-w-[1280px] mx-auto px-6 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-[1.2fr_0.8fr] gap-12 items-center">
           {/* Left Content */}
           <div>
             {/* Available Badge */}
-            <div
-              className="animate-fade-in start-hidden"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "8px",
-                marginBottom: "32px",
-                fontSize: "12px",
-                fontWeight: 500,
-                letterSpacing: "1px",
-                color: "var(--color-text-secondary)",
-                textTransform: "uppercase",
-              }}
-            >
-              <span
-                style={{
-                  width: "8px",
-                  height: "8px",
-                  backgroundColor: "var(--color-accent)",
-                  borderRadius: "50%",
-                  display: "inline-block",
-                  animation: "pulse-dot 2s ease-in-out infinite",
-                }}
-              />
+            <div className="opacity-0 animate-fade-in inline-flex items-center gap-2 mb-8 text-xs font-medium tracking-[1px] text-text-secondary uppercase">
+              <span className="w-2 h-2 bg-accent rounded-full inline-block animate-pulse-dot" />
               AVAILABLE FOR OPPORTUNITIES
             </div>
 
             {/* Heading */}
             <h1
-              className="animate-fade-in-up start-hidden delay-100"
-              style={{
-                fontFamily: "var(--font-heading)",
-                fontSize: "clamp(48px, 7vw, 88px)",
-                fontWeight: 800,
-                lineHeight: 1.05,
-                letterSpacing: "-2px",
-                marginBottom: "24px",
-              }}
+              className="opacity-0 animate-fade-in-up font-heading text-[clamp(48px,7vw,88px)] font-extrabold leading-[1.05] tracking-[-2px] mb-6"
+              style={{ animationDelay: "0.1s" }}
             >
               I BUILD DIGITAL{" "}
-              <span style={{ color: "var(--color-accent)" }}>EXPERIENCES.</span>
+              <span className="text-accent">EXPERIENCES.</span>
             </h1>
 
             {/* Subtext */}
             <p
-              className="animate-fade-in-up start-hidden delay-200"
-              style={{
-                fontSize: "16px",
-                color: "var(--color-text-secondary)",
-                maxWidth: "440px",
-                lineHeight: 1.7,
-                marginBottom: "40px",
-              }}
+              className="opacity-0 animate-fade-in-up text-base text-text-secondary max-w-[440px] leading-[1.7] mb-10"
+              style={{ animationDelay: "0.2s" }}
             >
               Full-stack MERN developer &mdash; national hackathon finalist with
               proven experience shipping real-time web apps using React, Node.js,
@@ -117,41 +48,12 @@ export default function Hero() {
 
             {/* Buttons */}
             <div
-              className="animate-fade-in-up start-hidden delay-300"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "16px",
-                flexWrap: "wrap",
-              }}
+              className="opacity-0 animate-fade-in-up flex items-center gap-4 flex-wrap"
+              style={{ animationDelay: "0.3s" }}
             >
               <a
                 href="#projects"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "10px",
-                  padding: "14px 28px",
-                  border: "1px solid var(--color-border-hover)",
-                  borderRadius: "100px",
-                  color: "var(--color-text-primary)",
-                  fontSize: "13px",
-                  fontWeight: 600,
-                  textDecoration: "none",
-                  letterSpacing: "0.5px",
-                  transition: "all 0.3s ease",
-                  background: "transparent",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = "var(--color-accent)";
-                  e.currentTarget.style.backgroundColor =
-                    "rgba(163, 230, 53, 0.05)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.borderColor =
-                    "var(--color-border-hover)";
-                  e.currentTarget.style.backgroundColor = "transparent";
-                }}
+                className="inline-flex items-center gap-2.5 px-7 py-3.5 border border-border-hover rounded-full text-text-primary text-[13px] font-semibold no-underline tracking-[0.5px] transition-all duration-300 bg-transparent hover:border-accent hover:bg-accent/5"
               >
                 VIEW MY WORK
                 <svg
@@ -171,24 +73,7 @@ export default function Hero() {
 
               <a
                 href="#"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "10px",
-                  padding: "14px 28px",
-                  color: "var(--color-text-secondary)",
-                  fontSize: "13px",
-                  fontWeight: 600,
-                  textDecoration: "none",
-                  letterSpacing: "0.5px",
-                  transition: "color 0.3s ease",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = "var(--color-text-primary)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = "var(--color-text-secondary)";
-                }}
+                className="inline-flex items-center gap-2.5 px-7 py-3.5 text-text-secondary text-[13px] font-semibold no-underline tracking-[0.5px] transition-colors duration-300 hover:text-text-primary"
               >
                 DOWNLOAD CV
                 <svg
@@ -211,78 +96,32 @@ export default function Hero() {
 
           {/* Right Content - Illustration + Stats */}
           <div
-            className="animate-fade-in start-hidden delay-400"
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: "32px",
-            }}
+            className="opacity-0 animate-fade-in flex flex-col items-center gap-8"
+            style={{ animationDelay: "0.4s" }}
           >
             {/* Illustration */}
-            <div
-              className="animate-float"
-              style={{
-                width: "100%",
-                maxWidth: "400px",
-                aspectRatio: "1",
-                position: "relative",
-                borderRadius: "20px",
-                overflow: "hidden",
-              }}
-            >
+            <div className="animate-float w-full max-w-[400px] aspect-square relative rounded-[20px] overflow-hidden">
               <Image
                 src="/images/hero-illustration.png"
                 alt="Tushar Ravaliya - Developer illustration"
                 fill
                 sizes="(max-width: 768px) 100vw, 400px"
-                style={{ objectFit: "cover" }}
+                className="object-cover"
                 priority
               />
             </div>
 
             {/* Stats */}
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(3, 1fr)",
-                gap: "2px",
-                width: "100%",
-                maxWidth: "400px",
-                backgroundColor: "var(--color-border)",
-                borderRadius: "16px",
-                overflow: "hidden",
-              }}
-            >
+            <div className="grid grid-cols-3 gap-0.5 w-full max-w-[400px] bg-border rounded-2xl overflow-hidden">
               {stats.map((stat) => (
                 <div
                   key={stat.label}
-                  style={{
-                    backgroundColor: "var(--color-bg-secondary)",
-                    padding: "20px 16px",
-                    textAlign: "center",
-                  }}
+                  className="bg-bg-secondary py-5 px-4 text-center"
                 >
-                  <div
-                    style={{
-                      fontSize: "28px",
-                      fontWeight: 700,
-                      fontFamily: "var(--font-heading)",
-                      color: "var(--color-text-primary)",
-                      marginBottom: "4px",
-                    }}
-                  >
+                  <div className="text-[28px] font-bold font-heading text-text-primary mb-1">
                     {stat.value}
                   </div>
-                  <div
-                    style={{
-                      fontSize: "10px",
-                      fontWeight: 500,
-                      letterSpacing: "1.5px",
-                      color: "var(--color-text-muted)",
-                      textTransform: "uppercase",
-                    }}
-                  >
+                  <div className="text-[10px] font-medium tracking-[1.5px] text-text-muted uppercase">
                     {stat.label}
                   </div>
                 </div>

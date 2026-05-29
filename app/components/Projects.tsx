@@ -37,144 +37,40 @@ const projects = [
 
 function ProjectCard({ project }: { project: (typeof projects)[0] }) {
   return (
-    <div
-      style={{
-        backgroundColor: "var(--color-bg-card)",
-        borderRadius: "16px",
-        border: "1px solid var(--color-border)",
-        overflow: "hidden",
-        transition: "all 0.4s ease",
-        cursor: "pointer",
-        display: "flex",
-        flexDirection: "column",
-      }}
-      onMouseEnter={(e) => {
-        e.currentTarget.style.borderColor = "var(--color-border-hover)";
-        e.currentTarget.style.transform = "translateY(-4px)";
-        e.currentTarget.style.boxShadow = "0 20px 60px rgba(0, 0, 0, 0.3)";
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.borderColor = "var(--color-border)";
-        e.currentTarget.style.transform = "translateY(0)";
-        e.currentTarget.style.boxShadow = "none";
-      }}
-    >
+    <div className="group bg-bg-card rounded-2xl border border-border overflow-hidden transition-all duration-300 cursor-pointer flex flex-col hover:border-border-hover hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,0,0,0.3)]">
       {/* Image Area */}
-      <div
-        style={{
-          position: "relative",
-          aspectRatio: "16/10",
-          overflow: "hidden",
-          margin: "12px",
-          borderRadius: "12px",
-          backgroundColor: "var(--color-bg-secondary)",
-        }}
-      >
+      <div className="relative aspect-[16/10] overflow-hidden m-3 rounded-xl bg-bg-secondary">
         <Image
           src={project.image}
           alt={project.title}
           fill
           sizes="(max-width: 768px) 100vw, 400px"
-          style={{ objectFit: "cover", transition: "transform 0.5s ease" }}
+          className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
         />
         {/* Number Badge */}
-        <div
-          style={{
-            position: "absolute",
-            top: "12px",
-            left: "12px",
-            width: "36px",
-            height: "36px",
-            borderRadius: "10px",
-            border: "1px solid rgba(255,255,255,0.15)",
-            backgroundColor: "rgba(0,0,0,0.5)",
-            backdropFilter: "blur(10px)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontSize: "12px",
-            fontWeight: 600,
-            color: "var(--color-accent)",
-          }}
-        >
+        <div className="absolute top-3 left-3 w-9 h-9 rounded-[10px] border border-white/15 bg-black/50 backdrop-blur-[10px] flex items-center justify-center text-xs font-semibold text-accent">
           {project.number}
         </div>
         {/* Heading overlay */}
-        <div
-          style={{
-            position: "absolute",
-            bottom: "16px",
-            left: "16px",
-            right: "16px",
-          }}
-        >
-          <h3
-            style={{
-              fontFamily: "var(--font-heading)",
-              fontSize: "18px",
-              fontWeight: 700,
-              lineHeight: 1.3,
-              color: "#fff",
-              textShadow: "0 2px 8px rgba(0,0,0,0.6)",
-            }}
-          >
+        <div className="absolute bottom-4 left-4 right-4">
+          <h3 className="font-heading text-lg font-bold leading-[1.3] text-white [text-shadow:0_2px_8px_rgba(0,0,0,0.6)]">
             {project.heading}
           </h3>
         </div>
       </div>
 
       {/* Content */}
-      <div
-        style={{
-          padding: "8px 20px 20px",
-          display: "flex",
-          flexDirection: "column",
-          gap: "12px",
-          flex: 1,
-        }}
-      >
+      <div className="px-5 pt-2 pb-5 flex flex-col gap-3 flex-1">
         {/* Title + Arrow */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
-        >
-          <h4
-            style={{
-              fontFamily: "var(--font-heading)",
-              fontSize: "14px",
-              fontWeight: 700,
-              letterSpacing: "0.5px",
-            }}
-          >
+        <div className="flex items-center justify-between">
+          <h4 className="font-heading text-sm font-bold tracking-[0.5px]">
             {project.title}
           </h4>
           <a
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
-            style={{
-              width: "36px",
-              height: "36px",
-              borderRadius: "10px",
-              border: "1px solid var(--color-border)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              color: "var(--color-text-secondary)",
-              textDecoration: "none",
-              transition: "all 0.3s ease",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = "var(--color-accent)";
-              e.currentTarget.style.color = "var(--color-accent)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = "var(--color-border)";
-              e.currentTarget.style.color = "var(--color-text-secondary)";
-            }}
+            className="w-9 h-9 rounded-[10px] border border-border flex items-center justify-center text-text-secondary no-underline transition-all duration-300 hover:border-accent hover:text-accent"
           >
             <svg
               width="14"
@@ -193,39 +89,16 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
         </div>
 
         {/* Description */}
-        <p
-          style={{
-            fontSize: "13px",
-            color: "var(--color-text-muted)",
-            lineHeight: 1.5,
-          }}
-        >
+        <p className="text-[13px] text-text-muted leading-[1.5]">
           {project.description}
         </p>
 
         {/* Tags */}
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            gap: "8px",
-            marginTop: "auto",
-            paddingTop: "8px",
-            borderTop: "1px solid var(--color-border)",
-          }}
-        >
+        <div className="flex flex-wrap gap-2 mt-auto pt-2 border-t border-border">
           {project.tags.map((tag) => (
             <span
               key={tag}
-              style={{
-                fontSize: "10px",
-                fontWeight: 600,
-                letterSpacing: "0.5px",
-                padding: "6px 12px",
-                border: "1px solid var(--color-border)",
-                borderRadius: "6px",
-                color: "var(--color-text-secondary)",
-              }}
+              className="text-[10px] font-semibold tracking-[0.5px] px-3 py-1.5 border border-border rounded-md text-text-secondary"
             >
               {tag}
             </span>
@@ -238,64 +111,16 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
 
 export default function Projects() {
   return (
-    <section
-      id="projects"
-      style={{
-        padding: "100px 0",
-        borderTop: "1px solid var(--color-border)",
-      }}
-    >
-      <div
-        style={{
-          maxWidth: "1280px",
-          margin: "0 auto",
-          padding: "0 24px",
-        }}
-      >
+    <section id="projects" className="py-[100px] border-t border-border">
+      <div className="max-w-[1280px] mx-auto px-6">
         {/* Section Header */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "flex-end",
-            justifyContent: "space-between",
-            marginBottom: "48px",
-            flexWrap: "wrap",
-            gap: "16px",
-          }}
-        >
+        <div className="flex items-end justify-between mb-12 flex-wrap gap-4">
           <div>
-            <div
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "8px",
-                marginBottom: "12px",
-                fontSize: "12px",
-                fontWeight: 500,
-                letterSpacing: "1px",
-                color: "var(--color-text-secondary)",
-                textTransform: "uppercase",
-              }}
-            >
-              <span
-                style={{
-                  width: "8px",
-                  height: "8px",
-                  backgroundColor: "var(--color-accent)",
-                  borderRadius: "50%",
-                  display: "inline-block",
-                }}
-              />
+            <div className="inline-flex items-center gap-2 mb-3 text-xs font-medium tracking-[1px] text-text-secondary uppercase">
+              <span className="w-2 h-2 bg-accent rounded-full inline-block" />
               FEATURED WORKS
             </div>
-            <h2
-              style={{
-                fontFamily: "var(--font-heading)",
-                fontSize: "clamp(28px, 4vw, 40px)",
-                fontWeight: 700,
-                letterSpacing: "-1px",
-              }}
-            >
+            <h2 className="font-heading text-[clamp(28px,4vw,40px)] font-bold tracking-[-1px]">
               SELECTED PROJECTS
             </h2>
           </div>
@@ -303,22 +128,7 @@ export default function Projects() {
             href="https://github.com/tushar-ravaliya?tab=repositories"
             target="_blank"
             rel="noopener noreferrer"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "8px",
-              fontSize: "13px",
-              fontWeight: 500,
-              color: "var(--color-text-secondary)",
-              textDecoration: "none",
-              transition: "color 0.3s ease",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.color = "var(--color-accent)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.color = "var(--color-text-secondary)";
-            }}
+            className="inline-flex items-center gap-2 text-[13px] font-medium text-text-secondary no-underline transition-colors duration-300 hover:text-accent"
           >
             VIEW ALL PROJECTS
             <svg
@@ -338,13 +148,7 @@ export default function Projects() {
         </div>
 
         {/* Projects Grid */}
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(340px, 1fr))",
-            gap: "24px",
-          }}
-        >
+        <div className="grid grid-cols-[repeat(auto-fill,minmax(340px,1fr))] gap-6">
           {projects.map((project) => (
             <ProjectCard key={project.number} project={project} />
           ))}

@@ -14,11 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}
-      >
-        {children}
-      </body>
+      <body className="min-h-screen flex flex-col">{children}</body>
     </html>
   );
 }

@@ -16,76 +16,25 @@ const socialLinks = [
 
 export default function Footer() {
   return (
-    <footer
-      id="contact"
-      style={{
-        borderTop: "1px solid var(--color-border)",
-        padding: "0",
-      }}
-    >
+    <footer id="contact" className="border-t border-border">
       {/* CTA Section */}
-      <div
-        style={{
-          padding: "80px 24px",
-          borderBottom: "1px solid var(--color-border)",
-        }}
-      >
-        <div
-          style={{
-            maxWidth: "1280px",
-            margin: "0 auto",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            flexWrap: "wrap",
-            gap: "24px",
-          }}
-        >
-          <h2
-            style={{
-              fontFamily: "var(--font-heading)",
-              fontSize: "clamp(24px, 3vw, 32px)",
-              fontWeight: 700,
-              lineHeight: 1.3,
-              letterSpacing: "-0.5px",
-              maxWidth: "400px",
-            }}
-          >
+      <div className="py-20 px-6 border-b border-border">
+        <div className="max-w-[1280px] mx-auto flex items-center justify-between flex-wrap gap-6">
+          <h2 className="font-heading text-[clamp(24px,3vw,32px)] font-bold leading-[1.3] tracking-[-0.5px] max-w-[400px]">
             LET&apos;S BUILD SOMETHING AWESOME TOGETHER.
           </h2>
           <a
             href="mailto:tushar.ravaliya18@gmail.com"
-            style={{
-              width: "56px",
-              height: "56px",
-              borderRadius: "14px",
-              border: "1px solid var(--color-border)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              color: "var(--color-text-secondary)",
-              textDecoration: "none",
-              transition: "all 0.3s ease",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = "var(--color-accent)";
-              e.currentTarget.style.color = "var(--color-accent)";
-              e.currentTarget.style.backgroundColor =
-                "rgba(163, 230, 53, 0.05)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = "var(--color-border)";
-              e.currentTarget.style.color = "var(--color-text-secondary)";
-              e.currentTarget.style.backgroundColor = "transparent";
-            }}
+            className="inline-flex items-center gap-3 px-8 py-4 bg-accent text-bg-primary rounded-full text-base font-bold tracking-[0.5px] no-underline transition-all duration-300 hover:bg-accent-dark hover:shadow-[0_0_30px_rgba(163,230,53,0.3)] hover:scale-105"
           >
+            GET IN TOUCH
             <svg
               width="20"
               height="20"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
-              strokeWidth="2"
+              strokeWidth="2.5"
               strokeLinecap="round"
               strokeLinejoin="round"
             >
@@ -97,61 +46,22 @@ export default function Footer() {
       </div>
 
       {/* Footer Links */}
-      <div
-        style={{
-          padding: "48px 24px",
-        }}
-      >
-        <div
-          style={{
-            maxWidth: "1280px",
-            margin: "0 auto",
-            display: "grid",
-            gridTemplateColumns: "1fr",
-            gap: "40px",
-          }}
-          className="md:!grid-cols-[1fr_1fr_1fr_1.5fr]"
-        >
+      <div className="py-12 px-6">
+        <div className="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-[1fr_1fr_1fr_1.5fr] gap-10">
           {/* Logo / Brand */}
           <div />
 
           {/* Navigation */}
           <div>
-            <h4
-              style={{
-                fontSize: "12px",
-                fontWeight: 600,
-                letterSpacing: "1px",
-                color: "var(--color-text-muted)",
-                marginBottom: "20px",
-                textTransform: "uppercase",
-              }}
-            >
+            <h4 className="text-xs font-semibold tracking-[1px] text-text-muted mb-5 uppercase">
               NAVIGATION
             </h4>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "12px",
-              }}
-            >
+            <div className="flex flex-col gap-3">
               {navLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
-                  style={{
-                    fontSize: "14px",
-                    color: "var(--color-text-secondary)",
-                    textDecoration: "none",
-                    transition: "color 0.3s ease",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.color = "var(--color-text-primary)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.color = "var(--color-text-secondary)";
-                  }}
+                  className="text-sm text-text-secondary no-underline transition-colors duration-300 hover:text-text-primary"
                 >
                   {link.label}
                 </a>
@@ -161,43 +71,17 @@ export default function Footer() {
 
           {/* Socials */}
           <div>
-            <h4
-              style={{
-                fontSize: "12px",
-                fontWeight: 600,
-                letterSpacing: "1px",
-                color: "var(--color-text-muted)",
-                marginBottom: "20px",
-                textTransform: "uppercase",
-              }}
-            >
+            <h4 className="text-xs font-semibold tracking-[1px] text-text-muted mb-5 uppercase">
               SOCIALS
             </h4>
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "12px",
-              }}
-            >
+            <div className="flex flex-col gap-3">
               {socialLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{
-                    fontSize: "14px",
-                    color: "var(--color-text-secondary)",
-                    textDecoration: "none",
-                    transition: "color 0.3s ease",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.color = "var(--color-text-primary)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.color = "var(--color-text-secondary)";
-                  }}
+                  className="text-sm text-text-secondary no-underline transition-colors duration-300 hover:text-text-primary"
                 >
                   {link.label}
                 </a>
@@ -206,31 +90,12 @@ export default function Footer() {
           </div>
 
           {/* Copyright */}
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "flex-end",
-              textAlign: "right",
-              gap: "8px",
-            }}
-            className="md:!text-right"
-          >
-            <p
-              style={{
-                fontSize: "13px",
-                color: "var(--color-text-muted)",
-              }}
-            >
+          <div className="flex flex-col justify-end text-right gap-2">
+            <p className="text-[13px] text-text-muted">
               © 2026 Tushar Ravaliya. All rights reserved.
             </p>
-            <p
-              style={{
-                fontSize: "13px",
-                color: "var(--color-text-muted)",
-              }}
-            >
-              Built with passion & code.
+            <p className="text-[13px] text-text-muted">
+              Built with passion &amp; code.
             </p>
           </div>
         </div>

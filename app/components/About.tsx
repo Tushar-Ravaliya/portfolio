@@ -3,11 +3,11 @@
 import { useEffect, useRef, useState } from "react";
 
 const skills = [
-  { name: "React / Next.js", percentage: 90 },
-  { name: "Node.js / Express", percentage: 85 },
-  { name: "MongoDB", percentage: 80 },
-  { name: "TypeScript", percentage: 75 },
-  { name: "Tailwind CSS", percentage: 85 },
+  { name: "React / Next.js", level: 5 },
+  { name: "Node.js / Express", level: 4 },
+  { name: "MongoDB", level: 4 },
+  { name: "TypeScript", level: 3 },
+  { name: "Tailwind CSS", level: 4 },
 ];
 
 const highlights = [
@@ -67,61 +67,35 @@ const highlights = [
   },
 ];
 
-function SkillBar({
+function SkillCapsule({
   name,
-  percentage,
+  level,
   animate,
 }: {
   name: string;
-  percentage: number;
+  level: number;
   animate: boolean;
 }) {
+  const totalSegments = 5;
   return (
-    <div style={{ marginBottom: "20px" }}>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          marginBottom: "8px",
-        }}
-      >
-        <span
-          style={{
-            fontSize: "14px",
-            fontWeight: 500,
-            color: "var(--color-text-primary)",
-          }}
-        >
-          {name}
-        </span>
-        <span
-          style={{
-            fontSize: "14px",
-            fontWeight: 600,
-            color: "var(--color-text-secondary)",
-          }}
-        >
-          {percentage}%
-        </span>
-      </div>
-      <div
-        style={{
-          width: "100%",
-          height: "6px",
-          backgroundColor: "var(--color-bg-card)",
-          borderRadius: "3px",
-          overflow: "hidden",
-        }}
-      >
-        <div
-          style={{
-            height: "100%",
-            width: animate ? `${percentage}%` : "0%",
-            background: `linear-gradient(90deg, var(--color-accent-dark), var(--color-accent))`,
-            borderRadius: "3px",
-            transition: "width 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
-          }}
-        />
+    <div className="mb-5">
+      <span className="text-sm font-medium text-text-primary block mb-2.5">
+        {name}
+      </span>
+      <div className="flex gap-2">
+        {Array.from({ length: totalSegments }).map((_, i) => (
+          <div
+            key={i}
+            className={`h-[10px] flex-1 rounded-full transition-all duration-500 ${
+              animate && i < level
+                ? "bg-accent shadow-[0_0_8px_rgba(163,230,53,0.25)]"
+                : "bg-border-hover"
+            }`}
+            style={{
+              transitionDelay: animate ? `${i * 100}ms` : "0ms",
+            }}
+          />
+        ))}
       </div>
     </div>
   );
@@ -152,100 +126,30 @@ export default function About() {
     <section
       id="about"
       ref={sectionRef}
-      style={{
-        padding: "100px 0",
-        borderTop: "1px solid var(--color-border)",
-      }}
+      className="py-[100px] border-t border-border"
     >
-      <div
-        style={{
-          maxWidth: "1280px",
-          margin: "0 auto",
-          padding: "0 24px",
-        }}
-      >
+      <div className="max-w-[1280px] mx-auto px-6">
         {/* Section Label */}
-        <div
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "8px",
-            marginBottom: "20px",
-            fontSize: "12px",
-            fontWeight: 500,
-            letterSpacing: "1px",
-            color: "var(--color-text-secondary)",
-            textTransform: "uppercase",
-          }}
-        >
-          <span
-            style={{
-              width: "8px",
-              height: "8px",
-              backgroundColor: "var(--color-accent)",
-              borderRadius: "50%",
-              display: "inline-block",
-            }}
-          />
+        <div className="inline-flex items-center gap-2 mb-5 text-xs font-medium tracking-[1px] text-text-secondary uppercase">
+          <span className="w-2 h-2 bg-accent rounded-full inline-block" />
           ABOUT ME
         </div>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr",
-            gap: "64px",
-            alignItems: "start",
-          }}
-          className="lg:!grid-cols-[1fr_1fr]"
-        >
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           {/* Left Column */}
           <div>
-            <h2
-              style={{
-                fontFamily: "var(--font-heading)",
-                fontSize: "clamp(24px, 3.5vw, 36px)",
-                fontWeight: 800,
-                lineHeight: 1.2,
-                letterSpacing: "-1px",
-                marginBottom: "32px",
-              }}
-            >
+            <h2 className="font-heading text-[clamp(24px,3.5vw,36px)] font-extrabold leading-[1.2] tracking-[-1px] mb-8">
               I TURN IDEAS INTO FAST, SCALABLE & BEAUTIFUL WEB EXPERIENCES.
             </h2>
 
             {/* Highlights */}
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "16px",
-              }}
-            >
+            <div className="flex flex-col gap-4">
               {highlights.map((item) => (
                 <div
                   key={item.label}
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "12px",
-                    color: "var(--color-text-secondary)",
-                    fontSize: "14px",
-                    fontWeight: 500,
-                  }}
+                  className="flex items-center gap-3 text-text-secondary text-sm font-medium"
                 >
-                  <div
-                    style={{
-                      width: "36px",
-                      height: "36px",
-                      borderRadius: "10px",
-                      border: "1px solid var(--color-border)",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      flexShrink: 0,
-                    }}
-                  >
+                  <div className="w-9 h-9 rounded-[10px] border border-border flex items-center justify-center shrink-0">
                     {item.icon}
                   </div>
                   {item.label}
@@ -257,40 +161,27 @@ export default function About() {
           {/* Right Column */}
           <div>
             {/* Bio Text */}
-            <div style={{ marginBottom: "40px" }}>
-              <p
-                style={{
-                  fontSize: "15px",
-                  color: "var(--color-text-secondary)",
-                  lineHeight: 1.8,
-                  marginBottom: "16px",
-                }}
-              >
+            <div className="mb-10">
+              <p className="text-[15px] text-text-secondary leading-[1.8] mb-4">
                 I&apos;m a Full-Stack MERN Developer passionate about building
                 digital products that are fast, functional, and visually
                 engaging. Currently pursuing B.Tech in Computer Engineering at
                 RK University.
               </p>
-              <p
-                style={{
-                  fontSize: "15px",
-                  color: "var(--color-text-secondary)",
-                  lineHeight: 1.8,
-                }}
-              >
+              <p className="text-[15px] text-text-secondary leading-[1.8]">
                 I enjoy solving complex problems and turning ideas into
                 impactful solutions — from real-time trading apps to AI-powered
                 interview planners.
               </p>
             </div>
 
-            {/* Skills */}
+            {/* Skills — Capsule Progress Bars */}
             <div>
               {skills.map((skill) => (
-                <SkillBar
+                <SkillCapsule
                   key={skill.name}
                   name={skill.name}
-                  percentage={skill.percentage}
+                  level={skill.level}
                   animate={animate}
                 />
               ))}

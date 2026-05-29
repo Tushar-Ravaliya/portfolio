@@ -29,150 +29,45 @@ const experiences = [
 
 export default function Experience() {
   return (
-    <section
-      id="experience"
-      style={{
-        padding: "100px 0",
-        borderTop: "1px solid var(--color-border)",
-      }}
-    >
-      <div
-        style={{
-          maxWidth: "1280px",
-          margin: "0 auto",
-          padding: "0 24px",
-        }}
-      >
+    <section id="experience" className="py-[100px] border-t border-border">
+      <div className="max-w-[1280px] mx-auto px-6">
         {/* Section Header */}
-        <div
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "8px",
-            marginBottom: "12px",
-            fontSize: "12px",
-            fontWeight: 500,
-            letterSpacing: "1px",
-            color: "var(--color-text-secondary)",
-            textTransform: "uppercase",
-          }}
-        >
-          <span
-            style={{
-              width: "8px",
-              height: "8px",
-              backgroundColor: "var(--color-accent)",
-              borderRadius: "50%",
-              display: "inline-block",
-            }}
-          />
+        <div className="inline-flex items-center gap-2 mb-3 text-xs font-medium tracking-[1px] text-text-secondary uppercase">
+          <span className="w-2 h-2 bg-accent rounded-full inline-block" />
           CAREER PATH
         </div>
-        <h2
-          style={{
-            fontFamily: "var(--font-heading)",
-            fontSize: "clamp(28px, 4vw, 40px)",
-            fontWeight: 700,
-            letterSpacing: "-1px",
-            marginBottom: "48px",
-          }}
-        >
+        <h2 className="font-heading text-[clamp(28px,4vw,40px)] font-bold tracking-[-1px] mb-12">
           EXPERIENCE & EDUCATION
         </h2>
 
         {/* Timeline */}
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "0",
-          }}
-        >
+        <div className="flex flex-col">
           {experiences.map((exp, index) => (
             <div
               key={index}
-              style={{
-                display: "grid",
-                gridTemplateColumns: "1fr",
-                gap: "24px",
-                padding: "32px 0",
-                borderTop: "1px solid var(--color-border)",
-                transition: "all 0.3s ease",
-              }}
-              className="md:!grid-cols-[200px_1fr]"
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor =
-                  "rgba(163, 230, 53, 0.02)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "transparent";
-              }}
+              className="group grid grid-cols-1 md:grid-cols-[200px_1fr] gap-6 py-8 border-t border-border transition-all duration-300 hover:bg-accent/[0.02]"
             >
               {/* Period */}
-              <div
-                style={{
-                  fontSize: "13px",
-                  fontWeight: 500,
-                  color: "var(--color-accent)",
-                  letterSpacing: "0.5px",
-                  paddingTop: "4px",
-                }}
-              >
+              <div className="text-[13px] font-medium text-accent tracking-[0.5px] pt-1">
                 {exp.period}
               </div>
 
               {/* Details */}
               <div>
-                <h3
-                  style={{
-                    fontFamily: "var(--font-heading)",
-                    fontSize: "20px",
-                    fontWeight: 700,
-                    marginBottom: "4px",
-                  }}
-                >
+                <h3 className="font-heading text-xl font-bold mb-1">
                   {exp.role}
                 </h3>
-                <div
-                  style={{
-                    fontSize: "14px",
-                    color: "var(--color-text-muted)",
-                    marginBottom: "12px",
-                    fontWeight: 500,
-                  }}
-                >
+                <div className="text-sm text-text-muted mb-3 font-medium">
                   {exp.company}
                 </div>
-                <p
-                  style={{
-                    fontSize: "14px",
-                    color: "var(--color-text-secondary)",
-                    lineHeight: 1.7,
-                    marginBottom: "16px",
-                    maxWidth: "600px",
-                  }}
-                >
+                <p className="text-sm text-text-secondary leading-[1.7] mb-4 max-w-[600px]">
                   {exp.description}
                 </p>
-                <div
-                  style={{
-                    display: "flex",
-                    flexWrap: "wrap",
-                    gap: "8px",
-                  }}
-                >
+                <div className="flex flex-wrap gap-2">
                   {exp.technologies.map((tech) => (
                     <span
                       key={tech}
-                      style={{
-                        fontSize: "11px",
-                        fontWeight: 600,
-                        letterSpacing: "0.5px",
-                        padding: "5px 12px",
-                        border: "1px solid var(--color-border)",
-                        borderRadius: "6px",
-                        color: "var(--color-text-secondary)",
-                      }}
+                      className="text-[11px] font-semibold tracking-[0.5px] px-3 py-[5px] border border-border rounded-md text-text-secondary"
                     >
                       {tech}
                     </span>

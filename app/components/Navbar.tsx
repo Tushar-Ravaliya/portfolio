@@ -27,94 +27,37 @@ export default function Navbar() {
   return (
     <nav
       id="navbar"
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        right: 0,
-        zIndex: 1000,
-        padding: scrolled ? "12px 0" : "20px 0",
-        backgroundColor: scrolled ? "rgba(10, 10, 10, 0.9)" : "transparent",
-        backdropFilter: scrolled ? "blur(20px)" : "none",
-        borderBottom: scrolled ? "1px solid var(--color-border)" : "none",
-        transition: "all 0.3s ease",
-      }}
+      className={`fixed top-0 left-0 right-0 z-[1000] transition-all duration-300 ${
+        scrolled
+          ? "py-3 bg-bg-primary/90 backdrop-blur-[20px] border-b border-border"
+          : "py-5 bg-transparent backdrop-blur-none border-b border-transparent"
+      }`}
     >
-      <div
-        style={{
-          maxWidth: "1280px",
-          margin: "0 auto",
-          padding: "0 24px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-        }}
-      >
+      <div className="max-w-[1280px] mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <Link
           href="#home"
-          style={{
-            fontSize: "28px",
-            fontWeight: 800,
-            fontFamily: "var(--font-heading)",
-            color: "var(--color-text-primary)",
-            textDecoration: "none",
-            letterSpacing: "-1px",
-          }}
+          className="text-[28px] font-extrabold font-heading text-text-primary no-underline tracking-[-1px]"
         >
           Tushar Ravaliya
         </Link>
 
         {/* Desktop Nav Links */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "36px",
-          }}
-          className="hidden md:flex"
-        >
+        <div className="hidden md:flex items-center gap-9">
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
               onClick={() => setActiveLink(link.label)}
-              style={{
-                fontSize: "13px",
-                fontWeight: 500,
-                letterSpacing: "0.5px",
-                color:
-                  activeLink === link.label
-                    ? "var(--color-text-primary)"
-                    : "var(--color-text-secondary)",
-                textDecoration: "none",
-                position: "relative",
-                transition: "color 0.3s ease",
-                paddingBottom: "4px",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.color = "var(--color-text-primary)";
-              }}
-              onMouseLeave={(e) => {
-                if (activeLink !== link.label) {
-                  e.currentTarget.style.color = "var(--color-text-secondary)";
-                }
-              }}
+              className={`text-[13px] font-medium tracking-[0.5px] no-underline relative pb-1 transition-colors duration-300 hover:text-text-primary ${
+                activeLink === link.label
+                  ? "text-text-primary"
+                  : "text-text-secondary"
+              }`}
             >
               {link.label}
               {activeLink === link.label && (
-                <span
-                  style={{
-                    position: "absolute",
-                    bottom: 0,
-                    left: "50%",
-                    transform: "translateX(-50%)",
-                    width: "5px",
-                    height: "5px",
-                    backgroundColor: "var(--color-accent)",
-                    borderRadius: "50%",
-                  }}
-                />
+                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[5px] h-[5px] bg-accent rounded-full" />
               )}
             </a>
           ))}
@@ -123,26 +66,7 @@ export default function Navbar() {
         {/* CTA Button */}
         <a
           href="#contact"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "8px",
-            padding: "10px 24px",
-            backgroundColor: "var(--color-text-primary)",
-            color: "var(--color-bg-primary)",
-            borderRadius: "100px",
-            fontSize: "13px",
-            fontWeight: 600,
-            textDecoration: "none",
-            transition: "all 0.3s ease",
-          }}
-          className="hidden md:flex"
-          onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = "var(--color-accent)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.backgroundColor = "var(--color-text-primary)";
-          }}
+          className="hidden md:flex items-center gap-2 px-6 py-2.5 bg-text-primary text-bg-primary rounded-full text-[13px] font-semibold no-underline transition-all duration-300 hover:bg-accent"
         >
           LET&apos;S TALK
           <svg
@@ -162,15 +86,8 @@ export default function Navbar() {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden"
+          className="md:hidden bg-transparent border-none text-text-primary cursor-pointer p-2"
           onClick={() => setMobileOpen(!mobileOpen)}
-          style={{
-            background: "none",
-            border: "none",
-            color: "var(--color-text-primary)",
-            cursor: "pointer",
-            padding: "8px",
-          }}
           aria-label="Toggle menu"
         >
           <svg
@@ -200,17 +117,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div
-          className="md:hidden"
-          style={{
-            padding: "20px 24px",
-            backgroundColor: "rgba(10, 10, 10, 0.98)",
-            borderTop: "1px solid var(--color-border)",
-            display: "flex",
-            flexDirection: "column",
-            gap: "16px",
-          }}
-        >
+        <div className="md:hidden px-6 py-5 bg-bg-primary/[0.98] border-t border-border flex flex-col gap-4">
           {navLinks.map((link) => (
             <a
               key={link.label}
@@ -219,36 +126,18 @@ export default function Navbar() {
                 setActiveLink(link.label);
                 setMobileOpen(false);
               }}
-              style={{
-                fontSize: "14px",
-                fontWeight: 500,
-                color:
-                  activeLink === link.label
-                    ? "var(--color-accent)"
-                    : "var(--color-text-secondary)",
-                textDecoration: "none",
-                padding: "8px 0",
-              }}
+              className={`text-sm font-medium no-underline py-2 ${
+                activeLink === link.label
+                  ? "text-accent"
+                  : "text-text-secondary"
+              }`}
             >
               {link.label}
             </a>
           ))}
           <a
             href="#contact"
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: "8px",
-              padding: "12px 24px",
-              backgroundColor: "var(--color-text-primary)",
-              color: "var(--color-bg-primary)",
-              borderRadius: "100px",
-              fontSize: "13px",
-              fontWeight: 600,
-              textDecoration: "none",
-              marginTop: "8px",
-            }}
+            className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-text-primary text-bg-primary rounded-full text-[13px] font-semibold no-underline mt-2"
           >
             LET&apos;S TALK
             <svg
