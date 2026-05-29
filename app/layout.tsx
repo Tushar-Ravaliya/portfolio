@@ -37,8 +37,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/icon.png",
-        width: 1200,
-        height: 630,
+        width: 500,
+        height: 500,
         alt: "Tushar Ravaliya - Full-Stack Developer",
       },
     ],
