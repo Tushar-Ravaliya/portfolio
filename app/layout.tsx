@@ -7,6 +7,9 @@ export const metadata: Metadata = {
     default: "Tushar Ravaliya | Full-Stack Developer",
     template: "%s | Tushar Ravaliya",
   },
+  icons: {
+    icon: "/icon.png",
+  },
   description:
     "Full-stack MERN developer and national hackathon finalist specializing in fast, scalable, and visually engaging web applications.",
   keywords: [
