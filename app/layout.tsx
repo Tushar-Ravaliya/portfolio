@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     siteName: "Tushar Ravaliya Portfolio",
     images: [
       {
-        url: "/images/hero-illustration.png",
+        url: "/icon.png",
         width: 1200,
         height: 630,
         alt: "Tushar Ravaliya - Full-Stack Developer",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     description:
       "Full-stack MERN developer and national hackathon finalist specializing in fast, scalable, and visually engaging web applications.",
     images: ["/images/hero-illustration.png"],
-    creator: "@TusharRavaliya", // Placeholder if you have a twitter
+    creator: "@tushar_ravaliya",
   },
   robots: {
     index: true,
