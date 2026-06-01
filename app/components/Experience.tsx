@@ -14,8 +14,13 @@ const experiences = [
     company: "School of Engineering, RK University",
     period: "Jul 2024 – Present",
     description:
-      "Pursuing Bachelor of Technology in Computer Engineering with a current CGPA of 7.42. Building full-stack projects and participating in national-level hackathons.",
-    technologies: ["MERN Stack", "Data Structures", "Algorithms", "System Design"],
+      "Pursuing Bachelor of Technology in Computer Engineering with a current CGPA of 7.68. Building full-stack projects and participating in national-level hackathons.",
+    technologies: [
+      "MERN Stack",
+      "Data Structures",
+      "Algorithms",
+      "System Design",
+    ],
   },
   {
     role: "Diploma in Computer Engineering",

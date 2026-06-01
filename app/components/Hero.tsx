@@ -32,8 +32,7 @@ export default function Hero() {
               className="opacity-0 animate-fade-in-up font-heading text-[clamp(36px,8vw,88px)] font-extrabold leading-[1.05] tracking-[-2px] mb-6"
               style={{ animationDelay: "0.1s" }}
             >
-              I BUILD DIGITAL{" "}
-              <span className="text-accent">EXPERIENCES.</span>
+              I BUILD DIGITAL <span className="text-accent">EXPERIENCES.</span>
             </h1>
 
             {/* Subtext */}
@@ -42,8 +41,8 @@ export default function Hero() {
               style={{ animationDelay: "0.2s" }}
             >
               Full-stack MERN developer &mdash; national hackathon finalist with
-              proven experience shipping real-time web apps using React, Node.js,
-              Express, and MongoDB.
+              proven experience shipping real-time web apps using React,
+              Node.js, Express, and MongoDB.
             </p>
 
             {/* Buttons */}
@@ -72,7 +71,8 @@ export default function Hero() {
               </a>
 
               <a
-                href="#"
+                href="https://drive.google.com/file/d/1soZ8yJWlA9RyEOSPxNjqi7XMfiCZbfVl/view?usp=sharing"
+                target="_blank"
                 className="inline-flex items-center gap-2.5 px-7 py-3.5 text-text-secondary text-[13px] font-semibold no-underline tracking-[0.5px] transition-colors duration-300 hover:text-text-primary"
               >
                 DOWNLOAD CV
