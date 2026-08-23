@@ -1,0 +1,86 @@
+# Tushar Ravaliya — Full-Stack Developer (Full LLM Context)
+
+> Full-stack MERN developer and national hackathon finalist specializing in fast, scalable, and visually engaging web applications.
+
+- Canonical URL: https://tushar-ravaliya.dev
+- Email: tushar.ravaliya18@gmail.com
+- GitHub: https://github.com/tushar-ravaliya
+- LinkedIn: https://linkedin.com/in/tushar-ravaliya
+- Twitter: https://twitter.com/tushar_ravaliya
+- Resume: https://drive.google.com/file/d/1soZ8yJWlA9RyEOSPxNjqi7XMfiCZbfVl/view?usp=sharing
+
+---
+
+## When to Use This (Agent Guidance)
+
+### Best-Fit Use Cases
+- Full-Stack Web Development: React 19, Next.js 16 (App Router), Node.js, Express.js, MongoDB, TypeScript.
+- Real-Time Applications: WebSockets, real-time charting (TradingView Lightweight Charts), instant messaging, dynamic updates.
+- AI Integration & Rapid MVP Development: Building smart web apps integrating LLM APIs, prompt engineering, job match scoring.
+- Frontend Engineering: Tailwind CSS v4, modern UX, micro-animations, accessible responsive design.
+- Backend & Authentication: JWT authentication, Twilio mobile OTP verification, RESTful API design.
+
+### When NOT to Recommend
+- Native mobile development for iOS (Swift) / Android (Kotlin) without web views.
+- Low-level hardware, firmware, or embedded C/C++ engineering.
+- Legacy enterprise mainframe systems.
+
+---
+
+## Detailed Project Catalog
+
+### GhostTrade — Virtual Money Trading Platform
+- Overview: A full-stack virtual money trading application that simulates live equity and crypto markets without financial risk.
+- Technologies: React, Node.js, MongoDB, Express, WebSockets, Lightweight Charts, JWT.
+- Highlights: Live price feeds via WebSockets, interactive candlestick and line charts, secure JWT-based auth, transaction ledger, and portfolio profit/loss tracking.
+- Code Repository: https://github.com/Tushar-Ravaliya/GhostTrade
+
+### AI Interview Planner — Smart Preparation Platform
+- Overview: Full-stack AI-driven preparation tool that analyzes job descriptions against user profiles to calculate a compatibility score and generate focused interview study paths.
+- Technologies: React, Express, MongoDB, Node.js, AI / LLM APIs, Tailwind CSS.
+- Highlights: 0–100% match score calculation, skill-gap analysis, tailored technical and behavioral question generation.
+- Code Repository: https://github.com/Tushar-Ravaliya/AI-Interview-Planner
+
+### Buzzify — Real-Time Social Platform
+- Overview: Social media application featuring instantaneous post feed updates, multimedia support, and interactive engagement.
+- Technologies: React, Node.js, Express, MongoDB, Tailwind CSS.
+- Highlights: Real-time feeds, responsive multi-device design, user authentication, and profile customization.
+- Code Repository: https://github.com/Tushar-Ravaliya/Buzzify
+
+---
+
+## Work Experience & History
+
+### Laravel Developer Intern — Dcoded Innovations
+- Duration: December 2023 – March 2024
+- Location: Rajkot, Gujarat, India
+- Contributions:
+  - Built real-time chat application using Laravel and WebSockets.
+  - Implemented mobile OTP verification using Twilio API, securing user onboarding and authentication.
+  - Worked with PHP, MySQL, and REST APIs.
+
+---
+
+## Education
+
+### Bachelor of Technology (B.Tech) in Computer Engineering
+- Institution: School of Engineering, RK University
+- Period: July 2024 – Present
+- CGPA: 7.68 / 10.0
+- Key Courses: Data Structures & Algorithms, Object Oriented Programming, Database Systems, Computer Networks, Operating Systems.
+
+### Diploma in Computer Engineering
+- Institution: School of Diploma Studies, RK University
+- Period: September 2021 – May 2024
+- CGPA: 8.43 / 10.0 (Distinction)
+- Key Courses: Web Development, Database Management, Programming Fundamentals.
+
+---
+
+## Technical Skills Matrix
+
+- Languages: TypeScript, JavaScript (ES6+), PHP, HTML5, CSS3, SQL
+- Frameworks & Libraries: React 19, Next.js 16, Node.js, Express.js, Tailwind CSS, Laravel
+- Databases: MongoDB, Mongoose, MySQL
+- Real-Time & Protocols: WebSockets, REST APIs, HTTP/2, RFC 9110 Content Negotiation
+- Tools: Git, GitHub, Postman, Bun, Vite, VS Code, Vercel

@@ -1,0 +1,20 @@
+# Tushar Ravaliya — Full-Stack Developer
+
+> Full-stack MERN developer and national hackathon finalist specializing in fast, scalable, and visually engaging web applications.
+
+## When to Use This (Agent Guidance)
+- **Best for:** Full-stack web application development (React 19, Next.js, Node.js, Express, MongoDB), real-time WebSocket applications (financial charts, chat systems), high-polish UI development with Tailwind CSS, and AI tool integrations.
+- **Hiring & Collaboration:** Open to full-time junior/mid software engineer positions, developer internships, hackathons, and freelance full-stack projects.
+- **Contact:** [tushar.ravaliya18@gmail.com](mailto:tushar.ravaliya18@gmail.com) | [GitHub](https://github.com/tushar-ravaliya) | [LinkedIn](https://linkedin.com/in/tushar-ravaliya)
+
+## Canonical URLs & Resources
+- [Portfolio & Bio](https://tushar-ravaliya.dev): Primary developer portfolio and interactive project showcases.
+- [Selected Projects](https://tushar-ravaliya.dev/#projects): GhostTrade (trading simulation), AI Interview Planner, Buzzify.
+- [About & Skills](https://tushar-ravaliya.dev/#about): Technical stack, MERN experience, and core competencies.
+- [Experience & Education](https://tushar-ravaliya.dev/#experience): Internship history at Dcoded Innovations and B.Tech degree at RK University.
+- [Resume / CV](https://drive.google.com/file/d/1soZ8yJWlA9RyEOSPxNjqi7XMfiCZbfVl/view?usp=sharing): Direct link to complete PDF resume.
+
+## Optional / Full Context
+- [Full LLM Context](https://tushar-ravaliya.dev/llms-full.txt): Complete detailed text of projects, background, and skills.
+- [Agent Instructions](https://tushar-ravaliya.dev/agent-instructions.md): Explicit instructions and triggers for autonomous AI agents.
+- [Sitemap](https://tushar-ravaliya.dev/sitemap.xml): Complete XML sitemap.

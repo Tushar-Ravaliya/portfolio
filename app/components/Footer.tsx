@@ -168,9 +168,9 @@ export default function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr_1.5fr] gap-10">
             {/* Navigation links */}
             <div>
-              <h4 className="text-[10px] font-semibold tracking-[2px] text-text-muted mb-5 uppercase">
+              <h3 className="text-[10px] font-semibold tracking-[2px] text-text-muted mb-5 uppercase">
                 QUICK LINKS
-              </h4>
+              </h3>
               <div className="flex flex-col gap-3">
                 {navLinks.map((link) => (
                   <a
@@ -187,9 +187,9 @@ export default function Footer() {
 
             {/* Social links with icons */}
             <div>
-              <h4 className="text-[10px] font-semibold tracking-[2px] text-text-muted mb-5 uppercase">
+              <h3 className="text-[10px] font-semibold tracking-[2px] text-text-muted mb-5 uppercase">
                 FIND ME ONLINE
-              </h4>
+              </h3>
               <div className="flex flex-col gap-3">
                 {socialLinks.map((link) => (
                   <a

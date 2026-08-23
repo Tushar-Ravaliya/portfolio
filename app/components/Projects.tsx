@@ -53,9 +53,9 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
         </div>
         {/* Heading overlay */}
         <div className="absolute bottom-4 left-4 right-4">
-          <h3 className="font-heading text-lg font-bold leading-[1.3] text-white [text-shadow:0_2px_8px_rgba(0,0,0,0.6)]">
+          <p className="font-heading text-lg font-bold leading-[1.3] text-white [text-shadow:0_2px_8px_rgba(0,0,0,0.6)]">
             {project.heading}
-          </h3>
+          </p>
         </div>
       </div>
 
@@ -63,9 +63,9 @@ function ProjectCard({ project }: { project: (typeof projects)[0] }) {
       <div className="px-5 pt-2 pb-5 flex flex-col gap-3 flex-1">
         {/* Title + Arrow */}
         <div className="flex items-center justify-between">
-          <h4 className="font-heading text-sm font-bold tracking-[0.5px]">
+          <h3 className="font-heading text-sm font-bold tracking-[0.5px]">
             {project.title}
-          </h4>
+          </h3>
           <a
             href={project.link}
             target="_blank"

@@ -143,6 +143,7 @@ export default function About() {
             </h2>
 
             {/* Highlights */}
+            <h3 className="sr-only">Core Highlights & Specializations</h3>
             <div className="flex flex-col gap-4">
               {highlights.map((item) => (
                 <div
@@ -177,6 +178,9 @@ export default function About() {
 
             {/* Skills — Capsule Progress Bars */}
             <div>
+              <h3 className="text-xs font-semibold tracking-[2px] text-text-muted mb-4 uppercase">
+                Technical Stack &amp; Proficiency
+              </h3>
               {skills.map((skill) => (
                 <SkillCapsule
                   key={skill.name}
