@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -67,24 +68,24 @@ const jsonLd = {
     {
       "@type": "Person",
       "@id": "https://tushar-ravaliya.dev/#person",
-      "name": "Tushar Ravaliya",
-      "url": "https://tushar-ravaliya.dev",
-      "image": "https://tushar-ravaliya.dev/images/hero-illustration.png",
-      "jobTitle": "Full-Stack Developer",
-      "description":
+      name: "Tushar Ravaliya",
+      url: "https://tushar-ravaliya.dev",
+      image: "https://tushar-ravaliya.dev/images/hero-illustration.png",
+      jobTitle: "Full-Stack Developer",
+      description:
         "Full-stack MERN developer and national hackathon finalist specializing in fast, scalable, and visually engaging web applications.",
-      "email": "mailto:tushar.ravaliya18@gmail.com",
-      "sameAs": [
+      email: "mailto:tushar.ravaliya18@gmail.com",
+      sameAs: [
         "https://github.com/tushar-ravaliya",
         "https://linkedin.com/in/tushar-ravaliya",
         "https://twitter.com/tushar_ravaliya",
       ],
-      "alumniOf": {
+      alumniOf: {
         "@type": "EducationalOrganization",
-        "name": "RK University",
-        "url": "https://rku.ac.in",
+        name: "RK University",
+        url: "https://rku.ac.in",
       },
-      "knowsAbout": [
+      knowsAbout: [
         "Full-Stack Web Development",
         "MERN Stack",
         "React",
@@ -98,32 +99,32 @@ const jsonLd = {
         "WebSockets",
         "REST APIs",
       ],
-      "knowsLanguage": ["en", "gu", "hi"],
+      knowsLanguage: ["en", "gu", "hi"],
     },
     {
       "@type": "WebSite",
       "@id": "https://tushar-ravaliya.dev/#website",
-      "url": "https://tushar-ravaliya.dev",
-      "name": "Tushar Ravaliya Portfolio",
-      "description":
+      url: "https://tushar-ravaliya.dev",
+      name: "Tushar Ravaliya Portfolio",
+      description:
         "Full-stack MERN developer portfolio and interactive project showcase.",
-      "publisher": {
+      publisher: {
         "@id": "https://tushar-ravaliya.dev/#person",
       },
-      "inLanguage": "en",
+      inLanguage: "en",
     },
     {
       "@type": "ProfilePage",
       "@id": "https://tushar-ravaliya.dev/#webpage",
-      "url": "https://tushar-ravaliya.dev",
-      "name": "Tushar Ravaliya | Full-Stack Developer",
-      "isPartOf": {
+      url: "https://tushar-ravaliya.dev",
+      name: "Tushar Ravaliya | Full-Stack Developer",
+      isPartOf: {
         "@id": "https://tushar-ravaliya.dev/#website",
       },
-      "about": {
+      about: {
         "@id": "https://tushar-ravaliya.dev/#person",
       },
-      "mainEntity": {
+      mainEntity: {
         "@id": "https://tushar-ravaliya.dev/#person",
       },
     },
