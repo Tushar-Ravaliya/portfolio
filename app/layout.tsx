@@ -1,151 +1,67 @@
-import type { Metadata } from "next";
-import { Analytics } from "@vercel/analytics/next";
+import type { Metadata, Viewport } from "next";
+import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
+import { profile } from "@/lib/portfolio";
 import "./globals.css";
+import "./experiments.css";
+
+const geist = Geist({
+  variable: "--font-sans",
+  subsets: ["latin"],
+  display: "swap",
+});
+const mono = Geist_Mono({
+  variable: "--font-mono",
+  subsets: ["latin"],
+  display: "swap",
+});
+const serif = Instrument_Serif({
+  variable: "--font-serif",
+  subsets: ["latin"],
+  weight: "400",
+  style: "italic",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://tushar-ravaliya.dev"),
+  metadataBase: new URL(profile.siteUrl || "http://localhost:3000"),
   title: {
-    default: "Tushar Ravaliya | Full-Stack Developer",
-    template: "%s | Tushar Ravaliya",
+    default: "Tushar Ravaliya — Curiosity, in working form.",
+    template: "%s — Tushar Ravaliya",
   },
   description:
-    "Full-stack MERN developer and national hackathon finalist specializing in fast, scalable, and visually engaging web applications.",
-  keywords: [
-    "Tushar Ravaliya",
-    "Full-Stack Developer",
-    "MERN Stack",
-    "React",
-    "Next.js",
-    "Node.js",
-    "Express",
-    "MongoDB",
-    "Web Developer",
-    "Software Engineer",
-  ],
-  authors: [{ name: "Tushar Ravaliya", url: "https://tushar-ravaliya.dev" }],
-  creator: "Tushar Ravaliya",
+    "The working journal of Tushar Ravaliya, a developer and Computer Engineering student. Explore full-stack projects, creative coding, and the questions behind the work.",
+  authors: [{ name: profile.name }],
+  ...(profile.siteUrl ? { alternates: { canonical: "/" } } : {}),
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://tushar-ravaliya.dev",
-    title: "Tushar Ravaliya | Full-Stack Developer",
+    siteName: "Tushar Ravaliya — Working Form",
+    title: "Curiosity, in working form.",
     description:
-      "Full-stack MERN developer and national hackathon finalist specializing in fast, scalable, and visually engaging web applications.",
-    siteName: "Tushar Ravaliya Portfolio",
-    images: [
-      {
-        url: "https://tushar-ravaliya.dev/favicon.ico",
-        width: 500,
-        height: 500,
-        alt: "Tushar Ravaliya - Full-Stack Developer",
-      },
-    ],
+      "Projects, experiments, and a sense of wonder. The portfolio of Tushar Ravaliya.",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Tushar Ravaliya | Full-Stack Developer",
-    description:
-      "Full-stack MERN developer and national hackathon finalist specializing in fast, scalable, and visually engaging web applications.",
-    images: ["https://tushar-ravaliya.dev/favicon.ico"],
-    creator: "@tushar_ravaliya",
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
+  twitter: { card: "summary_large_image" },
 };
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Person",
-      "@id": "https://tushar-ravaliya.dev/#person",
-      name: "Tushar Ravaliya",
-      url: "https://tushar-ravaliya.dev",
-      image: "https://tushar-ravaliya.dev/images/hero-illustration.png",
-      jobTitle: "Full-Stack Developer",
-      description:
-        "Full-stack MERN developer and national hackathon finalist specializing in fast, scalable, and visually engaging web applications.",
-      email: "mailto:tushar.ravaliya18@gmail.com",
-      sameAs: [
-        "https://github.com/tushar-ravaliya",
-        "https://linkedin.com/in/tushar-ravaliya",
-        "https://twitter.com/tushar_ravaliya",
-      ],
-      alumniOf: {
-        "@type": "EducationalOrganization",
-        name: "RK University",
-        url: "https://rku.ac.in",
-      },
-      knowsAbout: [
-        "Full-Stack Web Development",
-        "MERN Stack",
-        "React",
-        "Next.js",
-        "Node.js",
-        "Express.js",
-        "MongoDB",
-        "TypeScript",
-        "JavaScript",
-        "Tailwind CSS",
-        "WebSockets",
-        "REST APIs",
-      ],
-      knowsLanguage: ["en", "gu", "hi"],
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://tushar-ravaliya.dev/#website",
-      url: "https://tushar-ravaliya.dev",
-      name: "Tushar Ravaliya Portfolio",
-      description:
-        "Full-stack MERN developer portfolio and interactive project showcase.",
-      publisher: {
-        "@id": "https://tushar-ravaliya.dev/#person",
-      },
-      inLanguage: "en",
-    },
-    {
-      "@type": "ProfilePage",
-      "@id": "https://tushar-ravaliya.dev/#webpage",
-      url: "https://tushar-ravaliya.dev",
-      name: "Tushar Ravaliya | Full-Stack Developer",
-      isPartOf: {
-        "@id": "https://tushar-ravaliya.dev/#website",
-      },
-      about: {
-        "@id": "https://tushar-ravaliya.dev/#person",
-      },
-      mainEntity: {
-        "@id": "https://tushar-ravaliya.dev/#person",
-      },
-    },
-  ],
-};
+export const viewport: Viewport = { themeColor: "#f4f1e9" };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="alternate" type="text/markdown" href="/index.md" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-      </head>
-      <body className="min-h-screen flex flex-col">{children}</body>
+    <html
+      lang="en"
+      data-scroll-behavior="smooth"
+      className={`${geist.variable} ${mono.variable} ${serif.variable}`}
+    >
+      <body>
+        <a className="skip-link" href="#main">
+          Skip to content
+        </a>
+        {children}
+      </body>
     </html>
   );
 }
