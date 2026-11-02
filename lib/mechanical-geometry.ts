@@ -6,6 +6,7 @@ type Face = {
   color: string;
   offset: Vec3;
   depthAnchor?: Vec3;
+  enclosed?: boolean;
 };
 export type ProjectedFace = {
   points: [number, number][];
@@ -146,10 +147,13 @@ function createMechanicalCube(): Face[] {
   box([0, -0.26, 0], [1.285, 0.025, 1.285], accent, undefined, 0.006);
   for (const x of [-0.54, 0.54])
     for (const z of [-0.54, 0.54]) {
-      cylinder([x, 0, z], 0.028, 1.94, 1, metal);
+      cylinder([x, 0, z], 0.028, 1.62, 1, metal);
       cylinder([x, 0.72, z], 0.046, 0.12, 1, metal);
       cylinder([x, -0.72, z], 0.046, 0.12, 1, metal);
     }
+  // Once closed, the casing fully conceals the internals. Omit those faces so
+  // average-depth sorting cannot paint a hidden post over the lid.
+  for (const face of faces) face.enclosed = true;
   // Each shell travels along its own normal when the assembly is exploded.
   for (let axis = 0; axis < 3; axis++)
     for (const sign of [-1, 1]) {
@@ -228,6 +232,7 @@ export function projectMechanicalCube(
 ): ProjectedFace[] {
   const projected: ProjectedFace[] = [];
   for (const face of mechanicalCube) {
+    if (face.enclosed && explosion < 0.025) continue;
     const normal = rotate(face.normal, yaw, pitch);
     if (normal[2] <= 0) continue;
     const light = Math.max(
